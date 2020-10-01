@@ -18,7 +18,6 @@ builders:
         virtualization-type: "hvm"
         root-device-type: "ebs"
         name: "Windows2019Server22-22-22"
-      owners: ["241099261431"]
       most_recent: true
     instance_type: "m5.2xlarge"
     ami_name: "windows-server-2019-vs2019-{{timestamp}}"
