@@ -47,7 +47,7 @@ jobs:
             echo Recording just-built image $IMAGE_NAME as the output of this job
           else
             MONOREPO_CONTENT_SHA="$(./scripts/get_content_sha windows)"
-
+            echo $AWS_ACCESS_KEY_ID
             IMAGE_NAME=$(./scripts/get_last_image amazon-ebs "${MONOREPO_CONTENT_SHA}" "${CIRCLE_JOB}")
             echo Nothing to build, recording previously-built image $IMAGE_NAME as the output of this job
           fi
