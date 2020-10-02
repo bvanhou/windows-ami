@@ -18,7 +18,7 @@ set -euo pipefail
 MONOREPO_CONTENT_SHA="${1}"
 JOB_NAME="${2}"
 REGION="${3:-}"
-REGION="us-east-1"
+REGION="us-east-2"
 RESPONSE="$(aws ec2 describe-images --filters Name="tag:monorepo_content_sha,Values=${MONOREPO_CONTENT_SHA}" Name="tag:circle_job_name,Values=${JOB_NAME}" --query Images[*] --region "${REGION}")"
 IMAGE=$(echo "${RESPONSE}" | jq --raw-output '.[].ImageId' | sort -r | head -n 1)
 echo "Found $(echo "${RESPONSE}" | jq length) images for ${JOB_NAME} with SHA ${MONOREPO_CONTENT_SHA} in ${REGION}" >/dev/stderr
